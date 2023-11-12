@@ -1,8 +1,10 @@
 <template>
-  <div class="event-card">
-    <span>@ {{ event.time }} on {{ event.date }}</span>
-    <h3 class="event-card__name">{{ event.title }}</h3>
-  </div>
+  <router-link :to="{ name: 'event-details', params: { id: event.id } }">
+    <div class="event-card">
+      <span>@ {{ event.time }} on {{ event.date }}</span>
+      <h3 class="event-card__name">{{ event.title }}</h3>
+    </div>
+  </router-link>
 </template>
 
 <script>
@@ -25,6 +27,10 @@ export default {
   margin-bottom: 10px;
   width: 300px;
   cursor: pointer;
+}
+a {
+  text-decoration: none;
+  color: inherit;
 }
 .event-card__name {
   font-size: 1.2rem;
